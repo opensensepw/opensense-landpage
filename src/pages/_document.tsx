@@ -1,3 +1,4 @@
+import config from '@/config';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 
 
@@ -22,7 +23,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head />
-        <body className='dark:bg-slate-800 bg-slate-100'>
+        <body className={'dark:bg-darkBg bg-lightBg'}>
           <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
           <Main />
           <NextScript />
