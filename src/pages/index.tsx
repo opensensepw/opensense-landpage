@@ -15,7 +15,7 @@ export default function Home() {
       <div>
         <Header />
 
-        <div className={`container mx-auto flex flex-col items-center justify-center mt-16 max-w-3xl`}>
+        <div className={`container mx-auto flex flex-col items-center justify-center mt-16 max-w-3xl `}>
           <AnimatedLogo />
           <div className='mt-4'>
             <div className='dark:text-darkText text-lightText font-thin text-xl text-center'>
@@ -69,28 +69,16 @@ export default function Home() {
             />
           </div>
 
-          {/* <div className='mt-8'>
-            <div className=' grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6'>
-              <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/microsoft.svg" className="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
-              <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/airbnb.svg" className="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
-              <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/google.svg" className="h-9 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
-              <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/ge.svg" className="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
-              <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/netflix.svg" className="h-8 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
-              <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                <img src="./images/clients/google-cloud.svg" className="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-              </div>
+          <div className='mt-8 '>
+            <p className='text-center text-2xl dark:text-darkText  text-lightText font-bold'>Trusted by</p>
+            <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6'>
+              {config.sponsors.map(sponsor => (
+                <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
+                  <img src={sponsor.icon} className="w-auto mx-auto h-10" loading="lazy" alt={sponsor.name} width="" height="" />
+                </div>
+              ))}
             </div>
-          </div> */}
+          </div>
 
         </div>
 
