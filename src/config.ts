@@ -9,7 +9,7 @@ const config = {
         {
             name:'Olympix',
             url:'https://www.olympix.ai/',
-            icon:'/images/sponsors/olympix.png'
+            icon:'./images/sponsors/olympix.png'
         }
     ]
 }
