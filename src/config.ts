@@ -2,7 +2,7 @@ import { OlympixIcon } from "./components/SVGIcons";
 
 const config: Config = {
     urls: {
-        discord: "",
+        discord: "https://discord.gg/opensense",
         twitter: "https://twitter.com/opensensepw",
         youtube: "https://www.youtube.com/@opensensepw",
         database: "https://lime-trampoline-6f9.notion.site/c36cbfe49eee4c11ad0fbea676cb12d1?v=2b9076e2eaf34139b3a97ae09a4cb472",
