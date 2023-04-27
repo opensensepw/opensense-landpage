@@ -20,5 +20,17 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
-  }
+  },
+  "description": "A basic landpage for OpenSense community using NextJS, Tailwindcss and Typescript",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opnsnse/opensense-landpage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opnsnse/opensense-landpage/issues"
+  },
+  "homepage": "https://github.com/opnsnse/opensense-landpage#readme"
 }
