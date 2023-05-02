@@ -16,7 +16,10 @@ const config: Config = {
             url: 'https://www.olympix.ai/',
             icon: OlympixIcon
         }
-    ]
+    ],
+    images:{
+        size: 256,
+    }
 }
 
 
