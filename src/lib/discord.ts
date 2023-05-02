@@ -23,5 +23,5 @@ export async function getDiscordScheduledEvents(botToken: string, guildId: strin
             end: event.scheduled_end_time,
             start: event.scheduled_start_time,
         } as ScheduledEvent
-    ))
+    )).sort((a,b) => new Date(a.start).getTime() - new Date(b.start).getTime())
 }
