@@ -11,8 +11,16 @@ import {
 import config from "@/config";
 import Head from "next/head";
 import Sponsor from "@/components/Sponsor";
+import { getDiscordScheduledEvents } from "@/lib/discord";
+import EventsBox from "@/components/EventsBox";
+import { GetServerSidePropsContext } from "next";
 
-export default function Home() {
+
+type Props = {
+    events: ScheduledEvent[]
+}
+
+export default function Home({ events }: Props) {
   return (
     <>
       <Head>
@@ -23,7 +31,7 @@ export default function Home() {
         <Header />
 
         <div
-          className={`container mx-auto p-2 md:p-0 flex flex-col items-center justify-center mt-16 max-w-3xl `}
+          className={`container mx-auto p-2 md:p-0 flex flex-col items-center justify-center mt-16 max-w-3xl`}
         >
           <AnimatedLogo />
           <div className="mt-4">
@@ -32,6 +40,7 @@ export default function Home() {
               education
             </div>
           </div>
+
 
           <div className="grid md:grid-cols-2 mt-4 gap-2">
             <Feature
@@ -100,8 +109,33 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          <div className="my-4">
+            <p className="text-center text-2xl dark:text-darkText  text-lightText font-bold mb-4">Next events</p>
+            <EventsBox events={events} />
+          </div>
+
+
         </div>
       </>
     </>
   );
+}
+
+
+export async function getServerSideProps<Props>(context:GetServerSidePropsContext) {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=3600, stale-while-revalidate=3600'
+  )
+  const events = await getDiscordScheduledEvents(
+    process.env.BOT_TOKEN || "",
+    process.env.GUILD_ID || ""
+  )
+
+  return {
+    props: {
+      events: events
+    }
+  }
 }
