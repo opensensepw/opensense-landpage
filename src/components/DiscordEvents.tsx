@@ -1,5 +1,7 @@
 import config from "@/config"
 import Image from "next/image"
+import useSWR from 'swr'
+import { Spinner } from "./Loading";
 
 function SingleEvent({ event }: { event: ScheduledEvent }) {
     return (
@@ -21,18 +23,29 @@ function SingleEvent({ event }: { event: ScheduledEvent }) {
     )
 }
 
-export default function EventsBox({ events }: { events: ScheduledEvent[] }) {
-    if (!events) {
-        return (
-            <div>
-                <p>no events</p>
-            </div>
-        )
-    }
+const fetcher = async (url: string) => {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data;
+}
+
+export default function EventsBox() {
+    const { data, error, isLoading } = useSWR('/api/discord', fetcher)
+
+    if(error) console.log(error)
+
 
     return (
-        <div className="grid md:grid-cols-3 gap-4">
-            {events.map(event => <SingleEvent key={event.name} event={event} />)}
+        <div className="mt-4">
+            <p className="text-center text-2xl dark:text-darkText  text-lightText font-bold mb-4">Next events</p>
+            {isLoading ?
+                <div className="flex justify-center">
+                    <Spinner />
+                </div> :
+                <div className="grid md:grid-cols-3 gap-4">
+                    {data && data.events.map((event: ScheduledEvent) => <SingleEvent key={event.name} event={event} />)}
+                </div>
+            }
         </div>
     )
 }
