@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-const graffityCiti = localFont({ src: '../../public/fonts/Graffiti City.otf' })
+const graffityCiti = localFont({ src: '../../../public/fonts/Graffiti City.otf' })
 
 function AnimatedLogo(){
     return(
