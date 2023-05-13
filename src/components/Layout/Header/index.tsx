@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-const DarkModeButton = dynamic(() => import("../components/DarkModeButton"), {
+const DarkModeButton = dynamic(() => import("./DarkModeButton"), {
     ssr: false,
     // loading: () =>       <div className='flex justify-end mx-4'><button> 🌞/🌙</button></div>
 })
