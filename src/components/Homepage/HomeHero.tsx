@@ -1,7 +1,7 @@
 import localFont from 'next/font/local'
 const graffityCiti = localFont({ src: '../../public/fonts/Graffiti City.otf' })
 
-export default function AnimatedLogo(){
+function AnimatedLogo(){
     return(
       <div className='relative w-full flex justify-center sm:flex-none sm:w-auto'>
       <svg id="Layer_1"
@@ -18,4 +18,18 @@ export default function AnimatedLogo(){
       </div>
     </div>
     )
-  }
+}
+
+export default function HomeHero() {
+    return (
+        <>
+            <AnimatedLogo />
+            <div className="mt-4">
+                <div className="dark:text-darkText text-lightText font-thin text-xl text-center">
+                    a community to promote open blockchain science, security and
+                    education
+                </div>
+            </div>
+        </>
+    )
+}
