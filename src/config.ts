@@ -1,4 +1,4 @@
-import { OlympixIcon } from "./components/SVGIcons";
+import { ImmunefiIcon, OlympixIcon } from "./components/SVGIcons";
 
 const config: Config = {
     urls: {
@@ -15,6 +15,11 @@ const config: Config = {
             name: 'Olympix',
             url: 'https://www.olympix.ai/',
             icon: OlympixIcon
+        },
+        {
+            name: 'Immunefi',
+            url: 'https://immunefi.com/',
+            icon: ImmunefiIcon
         }
     ],
     images:{
