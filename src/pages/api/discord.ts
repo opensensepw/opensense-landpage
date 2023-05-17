@@ -1,12 +1,37 @@
 import config from '@/config';
 import { generateDiscordScheduledEventImageUrl } from '@/lib/discord';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import Cors from 'cors';
+
+const cors = Cors({
+    methods:['GET','HEAD']
+})
+
+// Helper method to wait for a middleware to execute before continuing
+// And to throw an error when an error happens in a middleware
+function runMiddleware(
+    req: NextApiRequest,
+    res: NextApiResponse,
+    fn: Function
+  ) {
+    return new Promise((resolve, reject) => {
+      fn(req, res, (result: any) => {
+        if (result instanceof Error) {
+          return reject(result)
+        }
+  
+        return resolve(result)
+      })
+    })
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    
+    await runMiddleware(req, res, cors)
+
     const headers = {
         'Authorization': `Bot ${process.env.BOT_TOKEN}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'cache-control': 'public, s-maxage=1200, stale-while-revalidate=600',
     }
     
     const response = await fetch(`https://discord.com/api/v9/guilds/${process.env.GUILD_ID}/events`, { headers })
