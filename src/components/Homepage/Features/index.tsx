@@ -82,7 +82,7 @@ export default function Features(){
             },
           ]}
         />
-        <Feature
+        {/* <Feature
           title={"Events & Resource library"}
           description={
             "Time is gold so we collect almost all the info we gather into a database where we can filter out by categories"
@@ -94,7 +94,7 @@ export default function Features(){
               url: config.urls.database,
             },
           ]}
-        />
+        /> */}
       </div>
     )
 }

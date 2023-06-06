@@ -1,4 +1,5 @@
 import config from "@/config";
+import Image from "next/image";
 import Link from "next/link";
 
 function Sponsor(sponsor: Sponsor) {
@@ -28,6 +29,7 @@ export default function Sponsors() {
                         url={sponsor.url}
                     />
                 ))}
+
             </div>
         </div>
     )
