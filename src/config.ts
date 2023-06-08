@@ -1,4 +1,4 @@
-import { GuardianAuditsIcon, ImmunefiIcon, OlympixIcon } from "./components/SVGIcons";
+import { AuditWizardIcon, GuardianAuditsIcon, ImmunefiIcon, OlympixIcon } from "./components/SVGIcons";
 
 const config: Config = {
     urls: {
@@ -25,6 +25,11 @@ const config: Config = {
             name: 'Guardian Audits',
             url: 'https://guardianaudits.com/',
             icon: GuardianAuditsIcon
+        },
+        {
+            name: 'AuditWizard',
+            url: 'https://www.auditwizard.io/',
+            icon: AuditWizardIcon
         },
     ],
     images:{
