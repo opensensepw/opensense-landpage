@@ -12,7 +12,7 @@ export default function Homepage() {
             <HomeHero />
             <Features />
             <Sponsors />
-            {/* <EventsBox /> */}
+            <EventsBox />
         </div>
     )
 }
