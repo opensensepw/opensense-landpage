@@ -43,7 +43,7 @@ export default function EventsBox() {
                     <Spinner />
                 </div> :
                 <div className="grid md:grid-cols-3 gap-4">
-                    {data && data.events.map((event: ScheduledEvent) => <SingleEvent key={event.name} event={event} />)}
+                    {data && data.events && data.events.map((event: ScheduledEvent) => <SingleEvent key={event.name} event={event} />)}
                 </div>
             }
         </div>
